@@ -2,99 +2,93 @@
 <html lang="${user_context_language}">
 <head>
 <base href="${base_url}">
-<title>${favourite} - ${page_name}</title>
+<title>${favourite!} - ${page_name!}</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta charset="${encoding}">
-<meta http-equiv="Content-Type" content="text/html;charset=${encoding}">
-<meta http-equiv="Content-Language" content="${user_context_language}">
 <meta name="author" content="${meta_author}">
 <meta name="copyright" content="${meta_copyright}">
 <meta name="keywords" content="${meta_keywords}">
 <meta name="description" content="${meta_description}">
 <meta name="generator" content="${meta_generator}">
-<!-- Dublin Core metadatas -->
+<!-- Dublin Core metadatas 	-->
 <meta name="DC.Creator" content="${meta_author}">
 <meta name="DC.Rights" content="${meta_copyright}">
 <meta name="DC.Subject" content="${meta_keywords}">
 <meta name="DC.Description" content="${meta_description}">
 <#if dskey('themecitelibre.site_property.robotIndex.checkbox')?number = 0>
-<!-- ========================================================   -->
-<!-- Robots noindex                                             -->
-<!-- ========================================================   -->
+<!-- ==========================================================	-->
+<!-- Robots noindex 											-->
+<!-- ========================================================== -->
 <meta name="robots" content="noindex" data-test="${dskey('themecitelibre.site_property.robotIndex.checkbox')}">
 <meta name="googlebot" content="noindex">
 </#if>
 <!-- Set the viewport width to device width for mobile -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <!-- Le style -->
-<#if plugin_theme?? >
-	<#assign thetheme=plugin_theme />
-<#else>
-	<#assign thetheme=theme />
+<#if plugin_theme?? ><#assign thetheme=plugin_theme /><#else><#assign thetheme=theme /></#if>
+<#if themeCSSLinks?? >
+<@themeCSSLinks />
 </#if>
-<!-- Styles -->
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700&display=swap&subset=latin-ext" rel="stylesheet">
-<link href="${thetheme.pathCss}/bootstrap.min.css" rel="stylesheet">
-<link href="${thetheme.pathCss}/fontawesome-all.min.css" rel="stylesheet">
-<link href="${thetheme.pathCss}/tabler-icons.min.css" rel="stylesheet">
-<link href="${thetheme.pathCss}/swiper.min.css" rel="stylesheet">
-<link href="${thetheme.pathCss}/theme-citelibre-dark-mode.css" rel="stylesheet">
-<link href="${thetheme.pathCss}/theme-citelibre-tac.css" crossorigin="anonymous" rel="stylesheet">
-<link href="${thetheme.pathCss}/theme_citelibre_styles.css" rel="stylesheet">
-<!-- Plugins CSS -->
-${plugins_css_links} 
+<!-- Plugins CSS includes   -->
 <!-- Custom site styles include -->
-<link href="${thetheme.pathCss}/page_template_styles.css" crossorigin="anonymous" rel="stylesheet">
-<!-- Favicon  -->
-<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
-<link rel="apple-touch-icon" sizes="60x60" href="apple-icon-60x60.png">
-<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="76x76" href="apple-icon-76x76.png">
-<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
-<link rel="apple-touch-icon" sizes="120x120" href="apple-icon-120x120.png">
-<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
-<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
-<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
-<link rel="icon" type="image/png" sizes="192x192" href="android-icon-192x192.png">
-<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-<link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
-<link rel="manifest" href="manifest.json">
+${plugins_css_links}
+<!-- Custom site styles include -->
+<#assign optHeaderCss=.get_optional_template('themecitelibre_frameset_header_css.html')>
+<#if optHeaderCss.exists><@optHeaderCss.include /></#if>
+<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png?theme=citelibre${commonsThemeVersion}">
+<link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png?theme=citelibre${commonsThemeVersion}">
+<link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png?theme=citelibre${commonsThemeVersion}">
+<link rel="manifest" href="./site.webmanifest?theme=citelibre${commonsThemeVersion}">
+<link rel="mask-icon" href="./safari-pinned-tab.svg?theme=citelibre${commonsThemeVersion}" color="#071f32">
 <meta name="msapplication-TileColor" content="#ffffff">
-<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
 <meta name="theme-color" content="#ffffff">
-<script src="js/jquery.min.js"></script> <!-- jQuery for Bootstrap's JavaScript plugins -->
+${rss?default("<!-- no RSS feed -->")}
+<!-- Site JS Include -->
+<#-- Template to add js to header in page_frameset.html theme template -->
+<!-- Included JS Files -->
+<#assign optHeaderJs=.get_optional_template('themecitelibre_frameset_header_js.html')>
+<#if optHeaderJs.exists><@optHeaderJs.include /></#if>
+<@initThemeDatePicker />
 </head>
-<body data-spy="scroll" data-bs-target=".fixed-top">
-<!-- Main Menu -->
-<@cMainNav />
-<!-- end Main Menu -->
-<main id="main" role="main">
-	<!-- Page path -->
+<body id="body-page<#if page_id=1>-home</#if>"<#if lutece_user??> class="logged"</#if> data-bs-target-icon="${isTargetDefaultIconShown!'false'}" data-bs-theme="<#if isDark?? && isDark?boolean>dark<#else>light</#if>"<#if isLayoutFluid?? && isLayoutFluid?boolean> data-layout="fluid"</#if>>
+<!-- Accessibility Skip Nav Menu-->
+<@skipNav skipMenu=skipLinkMenu?boolean target=skipLinkMainId!'main' />
+<#-- Add your own Nav Menu Content here with @mainNavItem macro  -->
+<#assign optMainNav=.get_optional_template('themecitelibre_frameset_main_nav.html')>
+<#if optMainNav.exists><@optMainNav.include /></#if>
 <#if page_id &gt; 1>
-	<!-- breadcrumb -->
-	${page_path}
-	<!-- breadcrumb -->
+<!-- breadcrumb -->
+${page_path}
+<!-- breadcrumb -->
 </#if>
+<!-- main container -->
+<#assign optMainContentHeader=.get_optional_template('themecitelibre_frameset_content_header.html')>
+<#if optMainContentHeader.exists><@optMainContentHeader.include /></#if>
 ${page_content}
+<#if display_last_modified?? && display_last_modified><@cText class='text-right pt-3 pr-5'><@parisIcon name='clock' title='' class='main-danger-color' /> #i18n{portal.site.site_property.page.lastModified} ${last_modified!}</@cText></#if>
+<#assign optMainContentFooter=.get_optional_template('themecitelibre_frameset_content_footer.html')>
+<#if optMainContentFooter.exists><@optMainContentFooter.include /></#if>
 </main>
 <!-- Footer -->
-${page_footer}
-<!-- end of footer -->
-<!-- Scripts -->
-<script src="js/popper.min.js"></script> <!-- Popper tooltip library for Bootstrap -->
-<script src="js/bootstrap.bundle.min.js"></script> <!-- Bootstrap framework -->
-<script src="js/jquery.easing.min.js"></script> <!-- jQuery Easing for smooth scrolling between anchors -->
-<script src="js/swiper.min.js"></script> <!-- Swiper for image and text sliders -->
-<script src="js/dark-mode-switch.min.js"></script>
-<script src="js/scripts.js"></script> <!-- Custom scripts -->
-<script src="js/jquery/plugins/validation/jquery.validate.min.js"></script>
-<script src="js/jquery/plugins/toastr/toastr.min.js"></script>
+<#-- Add your own Footer Menu Content here with @mainNavItem macro  -->
+<#assign optMenuFooter=.get_optional_template('themecitelibre_frameset_menu_footer.html')>
+<#if optMenuFooter.exists><@optMenuFooter.include /></#if>
+<!-- Le javascript
+    ================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<!-- Theme JS includes -->
+<#-- Template to add js to footer in page_frameset.html theme template -->
+<#if themeJSLinks?? >
+<@themeJSLinks />
+<#else>
+<script src="themes/skin/citelibre/js/vendor/bootstrap.bundle.min.js?theme=citelibre${commonsThemeVersion}"></script>
+</#if>
+<#-- Plugins JS includes   			-->
+${plugins_javascript_links!}
 <!-- Theme - Base JS init  -->
-<script type="text/javascript" src="js/init_site.js"></script>
+<#if dskey('themecitelibre.site_property.bannerBrowserWarning.checkbox')?number = 1>
 <!-- Browser detection and warning old browser -->
-<script src="js/es5.js"></script>
+<script src="themes/skin/citelibre/js/vendor/es5.js?theme=citelibre${commonsThemeVersion}"></script>
 <script>
 window.addEventListener( "load", function() {
 	const browser = bowser.getParser(window.navigator.userAgent);
@@ -107,9 +101,11 @@ window.addEventListener( "load", function() {
 			"edge" : ">=80",
 		},
 		macos: {
-			safari: ">=10.1"
+			safari: ">=6"
 		},
-
+		ios: {
+			safari: ">=6"
+		},
 		// or in general
 		chrome: ">=80",
 		firefox: ">=52",
@@ -137,42 +133,15 @@ window.addEventListener( "load", function() {
 		toastr["warning"]("#i18n{themecitelibre.toast.msg.ContentBrowser}" + urlMessage, "#i18n{themecitelibre.toast.msg.titleBrowser}" + browserName + ' ' + browserVer );
 	}
 });   
-</script> 
-<!-- CNIL Consent TarteAuCitron / Needs Matomo plugin -->
-<@cConsentTac title=favourite>
-<#-- Tarte au Citron Service : Matomo  -->
-<@cConsentTacService code='matomo'>
-${matomo!}
-</@cConsentTacService>
-</@cConsentTac>
-<#-- Plugins JS includes   			-->
-${plugins_javascript_links!}
-<#-- User message toastr notification - Parameter in back office - Menu Site / Site Properties -> Theme Paris.fr 	-->
-<#if dskey('themecitelibre.site_property.bannerMessage.htmlblock') !='' && dskey('themecitelibre.site_property.bannerMessage.Title') !=''>
-<!-- ========================================================   -->
-<!-- USER MESSAGE NOTIF		                                   -->
-<!-- ========================================================   -->
-<script>
-toastr.options = {
-    <#if dskey('themecitelibre.site_property.bannerMessageCloseButton.checkbox') = '1'>"closeButton": true,</#if>
-    "positionClass": "toast-${dskey('themecitelibre.site_property.bannerMessage.Position')}",
-    "preventDuplicates": true,
-    "showDuration": "300",
-    "hideDuration": "1000",
-    <#if dskey('themecitelibre.site_property.bannerMessageDuration') == '0'>
-    "timeOut": "0",
-    "extendedTimeOut": "0",
-    <#else>
-    "timeOut": "${dskey('themecitelibre.site_property.bannerMessage.Duration')}",
-    "extendedTimeOut": "1000",
-    </#if>
-    "showEasing": "swing",
-    "hideEasing": "linear",
-    "showMethod": "fadeIn",
-    "hideMethod": "fadeOut"
-}
-toastr.${dskey('themecitelibre.site_property.bannerMessage.Type')}(  "${dskey('themecitelibre.site_property.bannerMessage.htmlblock')}", "${dskey('themecitelibre.site_property.bannerMessage.Title')}");
 </script>
+</#if> 
+<#assign optJsFooter=.get_optional_template('themecitelibre_frameset_footer_js.html')>
+<#if optJsFooter.exists><@optJsFooter.include /></#if>
+<#if lutece_user??>
+<#assign optUserFooter=.get_optional_template('themecitelibre_frameset_footer_user.html')>
+<#if optUserFooter.exists><@optUserFooter.include /></#if>
 </#if>
+<script src="themes/skin/citelibre/js/site.js?theme=citelibre${commonsThemeVersion}"></script>
+
 </body>
 </html>

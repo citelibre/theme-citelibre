@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="${commonsSiteThemePath}js/util/actb/css/atcb.min.css">	
 <#assign formTitle><#if form.displayTitleFo && form.title != '' >${form.title}<#else>#i18n{appointment.appointmentApp.defaultTitle}</#if></#assign>
 <@cContainer hasHeader=false class='pb-3 no-header'>
 <@cStepDone step='1' title=formTitle idx=0 actionName='' >
@@ -17,32 +18,13 @@
 <@cStepDone step='3' title='#i18n{appointment.appointmentApp.enteringInformation}' idx=2 actionName=''>
 	<@cRow>
 		<@cCol>
-			<ul class="list-group list-group-horizontal">
-				<li class="list-group-item w-25">${formMessages.fieldLastNameTitle!}</li>
-				<li class="list-group-item w-75">${user.lastName!}</li>
-			</ul>	
-			<ul class="list-group list-group-horizontal">
-				<li class="list-group-item w-25">${formMessages.fieldFirstNameTitle!}</li>
-				<li class="list-group-item w-75">${user.firstName!}</li>
-			</ul>	
-			<ul class="list-group list-group-horizontal">
-				<li class="list-group-item w-25">${formMessages.fieldEmailTitle!}</li>
-				<li class="list-group-item w-75">${user.email!}</li>
-			</ul>
-			<#if nbplaces &gt; 1>
-				<ul class="list-group list-group-horizontal">
-					<li class="list-group-item w-25">#i18n{appointment.createAppointmentForm.labelNumberOfBookedseatsPerAppointment}</li>
-					<li class="list-group-item w-75">${nbplaces!}</li>
-				</ul>	
-			</#if>
-			<#list listResponseRecapDTO as response>
-				<#if response.recapValue?? && response.recapValue?has_content>
-					<ul class="list-group list-group-horizontal">
-						<#if !entrySave?exists||entrySave.idEntry!=response.entry.idEntry><li class="list-group-item w-25">${response.entry.title}<#assign entrySave=response.entry></li></#if>
-						<li class="list-group-item w-75">${response.recapValue!}</li>
-					</ul>
-				</#if>
-			</#list>
+			<@chList class='list-group list-group-flush'>
+				<@chItem class='list-group-item'>${formMessages.fieldLastNameTitle!} : ${user.lastName!}</@chItem>
+				<@chItem class='list-group-item'>${formMessages.fieldFirstNameTitle!} : ${user.firstName!}</@chItem>
+				<@chItem class='list-group-item'>${formMessages.fieldEmailTitle!} : ${user.email!}</@chItem>
+				<#if form.maxPeoplePerAppointment gt 1><@chItem class='list-group-item'>#i18n{appointment.createAppointmentForm.labelNumberOfBookedseatsPerAppointment} : ${nbplaces!}</@chItem></#if>
+				<#list listResponseRecapDTO as response><#if response.recapValue?? && response.recapValue?has_content><#if !entrySave?exists||entrySave.idEntry!=response.entry.idEntry><@chItem class='list-group-item'>${response.entry.title}<#assign entrySave=response.entry> : ${response.recapValue!}</@chItem></#if></#if></#list>
+			</@chList>
 		</@cCol> 
 	</@cRow>
 </@cStepDone>
@@ -50,15 +32,16 @@
 <@cStepCurrent step=5 title='#i18n{appointment.appointmentApp.confirmation}' actionNextStep='' actionPrevStep=''  actionSaveStep='' >
 	<@cRow>
 		<@cCol class='d-flex justify-content-center'>
-			<@cText>${formMessages.textAppointmentCreated}</@cText>
+			<@cAlert title=formMessages.textAppointmentCreated />
 		</@cCol>
 	</@cRow>
 	<@cRow>
 		<@cCol class='d-flex justify-content-center'>
-			<@cLink id="finish" class='btn btn-action py-3 me-2' href=formMessages.urlRedirectAfterCreation label='' >
-				<@cIcon class='check' label='${formMessages.labelButtonRedirection}' /> ${formMessages.labelButtonRedirection}
+			<@cLink id='finish' class='btn btn-main btn-main-sm me-2' href=formMessages.urlRedirectAfterCreation label='' >
+				<@cIcon class='check' label='${formMessages.labelButtonRedirection}' /> 
+				<@cInline class='span-label'>${formMessages.labelButtonRedirection}</@cInline>
 			</@cLink>
-			<div id="atcb" class="atcb d-flex align-items-center" style="display:none;">
+			<@cBlock id='atcb' class='atcb d-flex align-items-center' params='style="display: none;"'>
 				{
 				  "name":"${formTitle}",
 				  "description":"${form.description}",
@@ -83,15 +66,9 @@
 				  "listStyle":"modal",
 				  "iCalFileName":"RDV-CiteLibre"
 				}
-			  </div>
+			  </@cBlock>
 		</@cCol>
 	</@cRow>
 </@cStepCurrent>
 </@cContainer>
-<link rel="stylesheet" href="js/util/actb/css/atcb.min.css">	
-<script src="js/util/actb/js/atcb.min.js"></script>
-<script>
-$(function(){ 
-	$('.ex-2-header').removeClass();
-});
-</script>
+<script src="${commonsSiteThemePath}js/util/actb/js/atcb.min.js"></script>

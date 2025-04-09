@@ -1,11 +1,13 @@
 <#if noAppointmentWithThisReference??>
-	<p class="alert alert-info">#i18n{appointment.message.error.noAppointmentWithThisReference}</p>
+	<@cAlert title='#i18n{appointment.message.error.noAppointmentWithThisReference}' />
 <#else>
 	<div class="row nextStepTitleRow">
 		<div class="col-xs-12">
 			<div class="container">
-				<h2 class="stepTitle next">
-					<span class="stepTitleNumber previous"><i class="fa fa-check"></i></span>
+				<h2 class="step-title next">
+					<span class="stepTitleNumber previous">
+						<i class="fa fa-check"></i>
+					</span>
 					<#if form.displayTitleFo && form.title != '' >
 						${form.title}
 					<#else>
@@ -31,7 +33,7 @@
 	<div class="row nextStepTitleRow">
 		<div class="col-xs-12">
 			<div class="container">
-				<h2 class="stepTitle next">
+				<h2 class="step-title next">
 					<span class="stepTitleNumber previous"><i class="fa fa-check"></i></span>
 					#i18n{appointment.appointmentApp.choiceOfDate}
 				</h2>
@@ -54,7 +56,7 @@
 	<div class="row nextStepTitleRow">
 		<div class="col-xs-12">
 			<div class="container">
-				<h2 class="stepTitle next">
+				<h2 class="step-title next">
 					<span class="stepTitleNumber previous"><i class="fa fa-check"></i></span>
 					#i18n{appointment.appointmentApp.enteringInformation}
 				</h2>
@@ -127,8 +129,8 @@
 	<div class="row currentStepTitleRow">
 		<div class="col-xs-12">
 			<div class="container">
-				<h2 class="current stepTitle">
-					<span class="current stepTitleNumber"><i class="fa fa-close"></i></span>
+				<h2 class="current step-title">
+					<span class="step-number"><i class="fa fa-close"></i></span>
 					#i18n{appointment.cancelAppointment.pageTitle}
 				</h2>
 			</div>
