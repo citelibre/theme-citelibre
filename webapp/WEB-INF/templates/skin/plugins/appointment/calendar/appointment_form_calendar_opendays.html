@@ -1,9 +1,3 @@
-<script src='js/plugins/appointment/jquery.min.js' ></script>
-<script src="js/plugins/appointment/moment.min.js" ></script>
-<script src='js/plugins/appointment/fullcalendar.min.js' ></script>
-<script src='js/plugins/appointment/locale-all.js' ></script>
-<script src="js/plugins/appointment/bootstrap-datepicker.js" ></script>
-<script src="js/locales/bootstrap-datepicker.fr.js" charset="utf-8"></script>
 <link rel="stylesheet" href="css/plugins/appointment/fullcalendar.css" />
 <link rel="stylesheet" href="css/plugins/appointment/fullcalendar_ow.css" />
 <link rel="stylesheet" href="js/jquery/plugins/ui/css/jquery-ui.min.css"  />
@@ -13,8 +7,8 @@
 <div class="row nextStepTitleRow">
 	<div class="col-xs-12">
 		<div class="container">
-			<h2 class="stepTitle next">
-				<span class="stepTitleNumber previous"><i class="fa fa-check"></i></span>
+			<h2 class="step-title next">
+				<span class="stepTitleNumber previous"><i class="ti ti-check"></i></span>
 				<#if form.displayTitleFo && form.title != '' >${form.title}	<#else>	#i18n{appointment.appointmentApp.defaultTitle}</#if>
 			</h2>
 		</div>
@@ -39,8 +33,8 @@ ${mark_nb_places_to_take_form!}
 <div class="row currentStepTitleRow">
 	<div class="col-xs-12">
 		<div class="container">
-			<h2 class="current stepTitle" id="step2">
-				<span class="current stepTitleNumber">2</span>
+			<h2 class="current step-title" id="step2">
+				<span class="step-number">2 -----</span>
 				<#if formMessages.calendarTitle?? && formMessages.calendarTitle != ''>
 					${formMessages.calendarTitle}
 				</#if>
@@ -87,7 +81,7 @@ ${mark_nb_places_to_take_form!}
 <div class="row nextStepTitleRow">
 	<div class="col-xs-12">
 		<div class="container">
-			<h2 class="stepTitle next">
+			<h2 class="step-title next">
 				<span class="stepTitleNumber next">3</span>
 				#i18n{appointment.appointmentApp.enteringInformation}
 			</h2>
@@ -97,7 +91,7 @@ ${mark_nb_places_to_take_form!}
 <div class="row nextStepTitleRow">
 	<div class="col-xs-12">
 		<div class="container">
-			<h2 class="stepTitle next">
+			<h2 class="step-title next">
 				<span class="stepTitleNumber next">4</span>
 				#i18n{appointment.appointmentApp.recap.title}
 			</h2>
@@ -107,13 +101,19 @@ ${mark_nb_places_to_take_form!}
 <div class="row nextStepTitleRow">
 	<div class="col-xs-12">
 		<div class="container">
-			<h2 class="stepTitle next">
+			<h2 class="step-title next">
 				<span class="stepTitleNumber next">5</span>
 				#i18n{appointment.appointmentApp.confirmation}
 			</h2>
 		</div>
 	</div>
 </div>
+<script src="${commonsSiteThemePath}js/plugins/appointment/jquery.min.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/moment.min.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/fullcalendar.min.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/locale-all.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/bootstrap-datepicker.js" ></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/locales/bootstrap-datepicker.fr.js" charset="utf-8"></script>
 <script type="text/javascript">
 	var slotDuration = '${min_duration}';
     var minTime = '${min_time}';
@@ -239,6 +239,13 @@ ${mark_nb_places_to_take_form!}
 			},
 			events: events,
             eventRender: function(event, element) {
+                let popover = new bootstrap.Popover( element, {
+                	container: 'body',
+                    placement : 'bottom',
+                    html : true,
+                    trigger : 'hover',
+                    content : '<center>'+event.start.format('ddd DD/MM')+'</center>' + '<center><b>' + event.start.format('HH:mm') + '</b> - <b>' + event.end.format('HH:mm')+'</b></center>'
+                });
                 $(element).contextmenu(function() {
                     return false;
                 });

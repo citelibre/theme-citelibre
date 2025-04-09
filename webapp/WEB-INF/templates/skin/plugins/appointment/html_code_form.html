@@ -2,22 +2,6 @@
 <link rel="stylesheet" href="css/plugins/appointment/fullcalendar_ow.css" >
 <link rel="stylesheet" href="css/plugins/appointment/bootstrap-datepicker.standalone.css" >
 <link rel="stylesheet" href="css/plugins/appointment/appointment.css" >
-<style>
-.ridonely{
-    display: block;
-    width: 100%;
-    padding-top: .65rem;
-    padding-bottom: .65rem;
-    padding-left: 1.25rem;
-    border: 1px solid var(--border-color);
-    border-radius: .25rem;
-    background-color: #9e9e9ed1;
-    font: 400 0.875rem/1.875rem "Open Sans", sans-serif;
-    transition: all 0.2s;
-    color: white;
-  
-}  
-</style>
 <#assign formTitle><#if form.displayTitleFo && form.title!=''>${form.title}<#else>#i18n{appointment.appointmentApp.defaultTitle}</#if></#assign>
 <#assign urlForm>jsp/site/Portal.jsp?page=appointment&view=getViewAppointmentCalendar&id_form=${form.idForm}<#if nbPlacesToTake ?? && nbPlacesToTake != 0>&nbPlacesToTake=${nbPlacesToTake!}</#if>&date_of_display=${date_of_display}#current_step</#assign>
 <@cContainer hasHeader=false class='pb-3 no-header'>
@@ -35,7 +19,7 @@
 			<@cText>#i18n{appointment.labelThe} ${appointment.dateOfTheAppointment} #i18n{appointment.labelFrom} ${appointment.slot[0].startingTime} #i18n{appointment.labelTo} ${appointment.slot[i - 1].endingTime}</@cText>
 		</@cCol> 
 		<@cCol cols='sm-2'> 
-			<@cLink class='btn-outline-reg' href=urlForm label='#i18n{portal.util.labelModify}'><@cIcon label='' class='pencil' /> </@cLink>
+			<@cLink class='btn btn-main' href=urlForm label='#i18n{portal.util.labelModify}'><@cIcon label='' class='pencil' /> </@cLink>
 		</@cCol>
 	</@cRow>
 </@cStepDone>
@@ -55,7 +39,7 @@
             		<#list errors as error >
             			<#assign errorMessage=error.message />
             		</#list>
-            		<@cAlert title=errorMessage dismissible=false class='danger' outline=true  />
+            		<@cAlert title=errorMessage dismissible=false class='danger' titleClass='text-danger h6' />
             	</#if>
             </#if>
             <#if infos??>
@@ -63,7 +47,7 @@
             		<#list infos as info >
             			<#assign infoMessage=info.message />
             		</#list>
-            		<@cAlert title=infoMessage dismissible=false class='info' outline=true  />
+            		<@cAlert title=infoMessage dismissible=false class='info'/>
             	</#if>
             </#if>
 			<#if form_errors??>
@@ -104,16 +88,9 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldLastNameHelp?? && formMessages.fieldLastNameHelp != ''>${formMessages.fieldLastNameHelp}</#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.lastName!}</#if></#assign>
-                   <#if user?? && (user.lastName?has_content || preferred_user_name?has_content)>
-                     <@cInput type='hidden' name='lastname' value=formGroupValue />
-                      <p class="ridonely">${formGroupValue}</p> 
-  					<#else>
-                     <@cField class=formGroupClassError>
-  						<@cInput name='lastname' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
-  						<@cLabel label=formMessages.fieldLastNameTitle for='lastname' required=true /> 
-  					</@cField>
- 
-                  </#if>        
+					<@cField label=formMessages.fieldLastNameTitle for='lastname' required=true labelClass=formGroupClassError>
+						<@cInput name='lastname' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError required=true />
+					</@cField>
 				</@cCol>
 				<@cCol>
 					<#assign formGroupError = '' />
@@ -136,15 +113,9 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldFirstNameHelp?? && formMessages.fieldFirstNameHelp != ''>${formMessages.fieldFirstNameHelp}</></#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.firstName!}</#if></#assign>
-                   <#if user?? && (user.firstName?has_content)>
-                     <@cInput type='hidden' name='firstname' value=formGroupValue />
-                      <p class="ridonely">${formGroupValue}</p> 
-  					<#else>
-					<@cField class=formGroupClassError>
-						<@cInput name='firstname' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
-						<@cLabel label=formMessages.fieldFirstNameTitle for='firstname' required=true /> 
-					</@cField>	
-                   </#if>   
+					<@cField label=formMessages.fieldFirstNameTitle for='firstname' required=true labelClass=formGroupClassError>
+						<@cInput name='firstname' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError required=true />
+					</@cField>						
 				</@cCol>
 			</@cRow>
 			<@cRow>
@@ -169,17 +140,11 @@
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldEmailNameHelp?? && formMessages.fieldEmailNameHelp != ''>${formMessages.fieldEmailNameHelp}</></#if></#assign>
 					<#assign formGroupValue><#if appointment??>${appointment.email!}</#if></#assign>
-                   <#if user?? && (user.email?has_content)>
-                     <@cInput type='hidden' name='email' value=formGroupValue />
-                      <p class="ridonely">${formGroupValue}</p> 
-  					<#else>
-					<@cField class=formGroupClassError>
-						<@cInput name='email' class='form-control input-sm' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError />
-						<@cLabel label=formMessages.fieldEmailTitle for='email' required=true /> 
+					<@cField label=formMessages.fieldEmailTitle for='email' required=true class=formGroupClassError>
+						<@cInput name='email' maxlength=255 value=formGroupValue helpMsg=formGroupHelp errorMsg=formGroupError required=true />
 					</@cField>
-                   </#if>
 				</@cCol>
-               <@cCol>
+				<@cCol>
 					<#assign formGroupError = '' />
 					<#if form_errors??>
 						<#assign hasDisplayableError = false>
@@ -197,20 +162,13 @@
 							</#list>
 						</#if>
 					</#if>
-                   <#if user?? && (user.email?has_content)>
-                     <@cInput type='hidden' name='emailConfirm' value=formGroupValue />
-                   <#else>
-                     
 					<#assign formGroupClassError><#if formGroupError!=''>has-error</#if></#assign>
 					<#assign formGroupHelp><#if formMessages.fieldConfirmationEmailHelp?? && formMessages.fieldConfirmationEmailHelp != ''>${formMessages.fieldConfirmationEmailHelp}</></#if></#assign>
-					<@cField class=formGroupClassError>
-						<@cInput name='emailConfirm' class='form-control input-sm' maxlength=255 helpMsg=formGroupHelp errorMsg=formGroupError />
-						<@cLabel label=formMessages.fieldConfirmationEmail for='emailConfirm' required=true /> 
+					<@cField label=formMessages.fieldConfirmationEmail for='emailConfirm' required=true labelClass=formGroupClassError>
+						<@cInput name='emailConfirm' maxlength=255 helpMsg=formGroupHelp errorMsg=formGroupError required=true />
 					</@cField>
-                     </#if>    
 				</@cCol>
-              
-				<#if form.maxPeoplePerAppointment &gt; 1>
+				<#if form.maxPeoplePerAppointment gt 1>
 					<@cCol>
 						<#assign formGroupError = '' />
 						<#if form_errors??>
@@ -234,9 +192,8 @@
 						<#assign formGroupHelp><#if nbplaces != 0>${nbplaces!} place(s) maximum</#if></#assign>
 						<#assign formGroupReadOnly><#if nbPlacesToTake != 0 >true<#else>false</#if></#assign>
 						<#assign formGroupValue><#if appointment.nbBookedSeats??>${appointment.nbBookedSeats!}</#if></#assign>
-						<@cField class=formGroupClassError>
-							<@cInput type='number' name='nbBookedSeats' readonly=formGroupReadOnly?boolean class='form-control input-sm' value=formGroupValue?string maxlength=3 helpMsg=formGroupHelp errorMsg=formGroupError min=1 max=nbplaces params=' onkeypress="return validateQty(event);"' />
-							<@cLabel label='#i18n{appointment.createAppointmentForm.labelMaxPeoplePerAppointment}' for='nbBookedSeats' required=true /> 
+						<@cField label='#i18n{appointment.createAppointmentForm.labelMaxPeoplePerAppointment}' for='nbBookedSeats' required=true labelClass=formGroupClassError>
+							<@cInput type='number' name='nbBookedSeats' readonly=formGroupReadOnly?boolean value=formGroupValue?string maxlength=3 helpMsg=formGroupHelp errorMsg=formGroupError min=1 max=nbplaces required=true params=' onkeypress="return validateQty(event);"' />
 						</@cField>
 					</@cCol>
 				</#if>
@@ -258,20 +215,19 @@
 		</@cCol>
 		<@cCol>
 			<#-- ${htmlpage_2!} -->
-			<p class="border border-main py-4 px-3">Nous vous proposons l'ensemble des rendez-vous disponibles dans les 20 prochains jours.</p>
+			<!-- TODO : i18n texte ci dessous -->
+			<@cText class="border border-main py-4 px-3">Nous vous proposons l'ensemble des rendez-vous disponibles dans les 20 prochains jours.</@cText>
 		</@cCol> 
 	</@cRow>
-	
 </@cStepCurrent>
 <@cStepNext step=4 title='#i18n{appointment.appointmentApp.recap.title}' />
 <@cStepNext step=5 title='#i18n{appointment.appointmentApp.confirmation}' />
 </@cContainer>
-<script src="js/plugins/appointment/moment.min.js" ></script>
-<script src='js/plugins/appointment/fullcalendar.min.js' ></script>
-<script src='js/plugins/appointment/locale-all.js' ></script>
-<script src="js/plugins/appointment/bootstrap-datepicker.js" ></script>
-<script src="js/locales/bootstrap-datepicker.fr.js" charset="utf-8"></script>
-<script>$(function(){ $('.ex-2-header').removeClass()});</script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/moment.min.js" ></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/fullcalendar.min.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/locale-all.js"></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/bootstrap-datepicker.js" ></script>
+<script src="${commonsSiteThemePath}js/plugins/appointment/locales/bootstrap-datepicker.fr.js" charset="utf-8"></script>
 <script>
 function validateQty(event) {
 	var key = window.event ? event.keyCode : event.which;
@@ -294,14 +250,13 @@ function minmax(value, min, max){
 }
 
 $( function(){
+	// $('.ex-2-header').removeClass();
+
     $('#emailConfirm').bind('paste', function (e) {
        e.preventDefault();
     });
 	$('#messageview').html( $('#infomessage').html() );
-});
-</script>
-<script>
-$(function(){ 
+
 	let currentEventLabel=' à ';
 	$( '.step-done .step-content p' ).each( function( i, e ){ 
 		if( i === 0 ){

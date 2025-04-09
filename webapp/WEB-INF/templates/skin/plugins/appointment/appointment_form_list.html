@@ -2,7 +2,7 @@
  	<@cCol>
 		<@cContainer>
 			<@messages infos=infos errors=errors />		
-			<h3><#if title??>${title}<#else>#i18n{appointment.xpage.formList.labelFormList}</#if></h3>
+			<@cTitle level=2 class='h3'><#if title??>${title}<#else>#i18n{appointment.xpage.formList.labelFormList}</#if></@cTitle>
 			<@listGroup>
 			<#if form_list?has_content>
 				<#assign compteur=form_list?size - 1>
@@ -14,9 +14,7 @@
 						<#else>
 							<@img url="images/local/skin/icon_appointment.png" class="icon img-fluid" alt="" />
 						</#if>
-						<@div>
-							<@p class='text-white ms-5'>${form_list[item].title}</@p>
-						</@div>
+						<@p class='text-white ms-5'>${form_list[item].title}</@p>
 						</@link>
 					</@listGroupItem>
 				</#list>

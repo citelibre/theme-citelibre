@@ -9,21 +9,21 @@
 </div>
 <div class="form-row">
 <#if !(editModeValue?? && editModeValue=="ReadOnly")>
-	<ul id="${entry.idEntry}_addr_list" class="list-unstyled list-osm-adress"></ul>
+	<ul id="nIt0_attribute${entry.idEntry}_addr_list" class="list-unstyled list-osm-adress"></ul>
 </#if>
 </div>
 <div class="form-row">
 	<div class="col col-osm osm-map" id="${entry.idEntry}_gmap"></div>
 </div>
-<link rel="stylesheet" href="js/plugins/genericattributes/modules/openstreetmap/leaflet.css" />
-<script src="js/plugins/genericattributes/modules/openstreetmap/leaflet.js"></script>
+<link rel="stylesheet" href="${commonsSiteThemePath}js/plugins/genericattributes/modules/openstreetmap/leaflet.css" />
+<script src="${commonsSiteThemePath}js/plugins/genericattributes/modules/openstreetmap/leaflet.js"></script>
 <script>
 var map;
 var genericAttributes_id = '${entry.idEntry}';	
-var searchInput = "#" + genericAttributes_id + "_address";
-var xInput = "#" + genericAttributes_id + "_x";
-var yInput = "#" + genericAttributes_id + "_y";
-var resultAff = "#" + genericAttributes_id + "_addr_list";
+var searchInput = "#nIt0_attribute" + genericAttributes_id + "_address";
+var xInput = "#nIt0_attribute" + genericAttributes_id + "_x";
+var yInput = "#nIt0_attribute" + genericAttributes_id + "_y";
+var resultAff = "#nIt0_attribute" + genericAttributes_id + "_addr_list";
 var addr;
 var marker = null;
 <#if !(editModeValue?? && editModeValue=="ReadOnly")>
@@ -73,5 +73,5 @@ if( bool == 'true'){
 </#if>
 });
 </script>
-<script type="text/javascript" src="js/plugins/genericattributes/modules/openstreetmap/genericattributes_openstreetmap.js"></script>
+<script type="text/javascript" src="${commonsSiteThemePath}js/plugins/genericattributes/modules/openstreetmap/genericattributes_openstreetmap.js"></script>
 <noscript>#i18n{module.genericattributes.openstreetmap.javascript.disabled}</noscript>
