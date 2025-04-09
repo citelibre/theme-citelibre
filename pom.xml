@@ -10,7 +10,7 @@
     <artifactId>site-theme-citelibre</artifactId>
     <packaging>lutece-site</packaging>
     <name>Site Theme CiteLibre</name>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
     <description></description>
     <scm>
         <connection>scm:git:https://github.com/citelibre/theme-citelibre.git</connection>
