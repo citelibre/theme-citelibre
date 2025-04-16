@@ -9,7 +9,7 @@
 <#assign userNameFamily=user.getUserInfo('user.name.preferred') > 
 <#assign urlMylutece=url_dologout />
 <#else>
-<#if urlMonCompte!=''><#assign urlMylutece=urlMonCompte /><#else><#assign urlMylutece='jsp/site/Portal.jsp?page=mylutece&action=login' /></#if>
+<#if urlKeycloak!=''><#assign urlMylutece=urlKeycloak /><#else><#assign urlMylutece='jsp/site/Portal.jsp?page=mylutece&action=login' /></#if>
 <#assign userNameFamily=user.getUserInfo('user.name.family') >
 </#if>
 <#assign userValidated=user.getUserInfo('user.validated') > 
