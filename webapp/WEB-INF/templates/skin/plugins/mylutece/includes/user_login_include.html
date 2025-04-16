@@ -1,20 +1,10 @@
 <#assign userName='#i18n{themecitelibre.labelConnect}' >
-<#assign labelUserFullName='User' >
-<#assign labelUserMail='' >
-<#assign userName='' >
-<#assign userFullName='' >
 <#assign userEmail='' >
-<#assign userInitials='' >
 <#assign urlMylutece='' />
 <#if user?has_content>
-    <#assign labelIsConnected='#i18n{themecitelibre.labelIsConnected}' >
-    <#assign userNameGiven=user.getUserInfo('user.name.given') >
+    <#assign userName=user.getUserInfo('user.name.given') >
     <#assign urlMylutece=url_dologout >
 <#else>
     <#assign urlMylutece=urlKeycloack >
-    
 </#if>
-<p>urlKeycloack : ${urlKeycloack!}</p>
-<p>urlMylutece : ${urlMylutece!}</p>
-<p>url_dologout : ${url_dologout!}</p>
-<@cMainNavUser connected=user?has_content userName=userName userFullName=userFullName userEmail=userEmail urlConnect=urlMylutece userInitials=userInitials btnToggle=true  class='' />
+<@cMainNavUser connected=user?has_content userName=userName urlConnect=urlMylutece  />

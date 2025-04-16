@@ -20,7 +20,7 @@ Parameters:
 <@deprecatedWarning args=deprecated />
 <#if !connected>
     <span class="nav-item">
-        <a class="btn btn-outline-main" href="jsp/site/Portal.jsp?page=mylutece&action=login">LOG IN</a>
+        <a class="btn btn-outline-main" href="${urlConnect!}">#i18n{themecitelibre.labelConnect}</a>
     </span>
 <#else>
     <li class="nav-item dropdown<#if class !='' > ${class!}</#if>"<#if id !='' > id="${id!}"</#if><#if params!=''> ${params}</#if>">
