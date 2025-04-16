@@ -22,7 +22,7 @@
 </div>
 <input type="hidden" name="leafletMap"/>
 <#if !(editModeValue?? && editModeValue=="ReadOnly")>
-<button type="button" onclick=displayLocationOnMap(this.id) id="${idName}_gmap_button" <#if useNoIteration == false> class="btn btn-primary btn-osm" <#else>class="btn btn-primary"</#if>>#i18n{portal.util.labelSearch}</button>
+<button type="button" onclick=displayLocationOnMap(this.id) id="${idName}_gmap_button" <#if useNoIteration == false> class="btn btn-osm" <#else>class="btn btn-primary"</#if>>#i18n{portal.util.labelSearch}</button>
 <#else>
 <#assign responseX = "" >
 <#assign responseY = "" >

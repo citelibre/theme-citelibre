@@ -2615,7 +2615,6 @@ input:required:invalid {
 
 /* Group Files */
 .group-files > .col > label{
-	margin-block-start: 1rem;
 	display: block;
 }
 
@@ -2862,12 +2861,11 @@ form .form-row.dropzone > .col > label{
 /***  								***/
 .col-osm{
 	height: 300px;
-	margin-top: 2rem;
+	margin-top: 15px
 }
 
 .openstreetmap-readonly .col-osm{
 	height: 150px;
-	margin-top: 15px
 }
 
 .list-osm-adress{
