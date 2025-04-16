@@ -1,7 +1,6 @@
 <#assign userName='#i18n{themecitelibre.labelConnect}' >
 <#assign labelUserFullName='User' >
 <#assign labelUserMail='' >
-<#assign urlMylutece='' />
 <#if user?has_content>
 <#assign labelIsConnected='#i18n{themecitelibre.labelIsConnected}' >
 <#assign userNameGiven=user.getUserInfo('user.name.given') >
@@ -9,7 +8,7 @@
 <#assign userNameFamily=user.getUserInfo('user.name.preferred') > 
 <#assign urlMylutece=url_dologout />
 <#else>
-<#if urlKeycloak!=''><#assign urlMylutece=urlKeycloak /><#else><#assign urlMylutece='jsp/site/Portal.jsp?page=mylutece&action=login' /></#if>
+<#if urlKeycloack!=''><#assign urlMylutece=urlKeycloack /><#else><#assign urlMylutece='jsp/site/Portal.jsp?page=mylutece&action=login' /></#if>
 <#assign userNameFamily=user.getUserInfo('user.name.family') >
 </#if>
 <#if userNameGiven?has_content || userNameFamily?has_content><#assign labelUserFullName=userNameGiven + ' ' + userNameFamily ></#if>
