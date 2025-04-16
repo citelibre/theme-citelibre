@@ -69,7 +69,7 @@ Parameters:
                     </div> 
                 </#if>
                 <div class="footer-col last">
-                    <h4>Cookies</h4>
+                    <h4>${dskey('themecitelibre.site_property.footer.cookieLabel')}</h4>
                     <ul class="list-unstyled">
                         <li class="text-white p-small"> 
                             <a class="white p-small ms-2" id="tarteaucitronManagerLink" role="button" href="" title="${dskey('themecitelibre.site_property.footer.cookieLabel')}" >
