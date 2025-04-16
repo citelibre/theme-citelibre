@@ -37,7 +37,6 @@ INSERT INTO core_datastore VALUES ('themecitelibre.site_property.bannerMessage.T
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.bannerMessage.Type';
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.bannerMessage.Type', 'info');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.config.bannerMessage.CloseButton.checkbox';
-INSERT INTO core_datastore VALUES ('themecitelibre.site_property.config.bannerMessage.CloseButton.checkbox', '0');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.config.datepicker.textblock';
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.config.datepicker.textblock', '');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.config.editor.textblock';
@@ -49,7 +48,6 @@ INSERT INTO core_datastore VALUES ('themecitelibre.site_property.footer.about.ti
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.footer.cookieLabel';
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.footer.cookieLabel', 'Cookies management');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.footer.cookieLink';
-INSERT INTO core_datastore VALUES ('themecitelibre.site_property.footer.cookieLink', '#cookiecitelibrepack');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.footer.links.title';
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.footer.links.title', 'Liens importants');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.layout.type.checkbox';
