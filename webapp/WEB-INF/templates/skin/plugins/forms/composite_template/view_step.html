@@ -83,8 +83,10 @@ document.addEventListener("DOMContentLoaded", function(){
 	window.scrollBy(0, y);
 	<#else>
 	const currentItem = document.querySelector('.breadcrumb-item.active');
-	const nbStep = parseInt( currentItem.dataset.currentStep ) + 1;
-	current.querySelector('.step-title .step-number').textContent=nbStep;
+	const nbStep = currentItem.dataset.currentStep != undefined ? parseInt( currentItem.dataset.currentStep ) + 1 : 0;
+	if(  nbStep > 0 ){
+		current.querySelector('.step-title .step-number').textContent=nbStep;
+	}
 	</#if>
 
 	// Hide step groups that have no inputs

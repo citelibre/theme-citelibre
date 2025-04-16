@@ -190,19 +190,35 @@ $( function(){
     // for input and textarea fields
     // Initialize form-control-input fields on page load
     $('.form-control-input, select, input[type=time]').each(function() {
-        if ($(this).val() !== '') {
-            $(this).addClass('input-filled');
+        if ($(this).is('select')) {
+            // For select elements, check if an option is selected
+            if ($(this)[0][0].textContent !== '' ) {
+                $(this).addClass('input-filled');
+            } 
         } else {
-            $(this).removeClass('input-filled');
+            // For non-select elements, continue with the existing behavior
+            if ($(this).val() !== '') {
+                $(this).addClass('input-filled');
+            } 
         }
     });
 
     // Add event listeners for real-time validation
     $('.form-control-input, select, input[type=time]').on('input change blur', function() {
-        if ($(this).val() !== '') {
-            $(this).addClass('input-filled');
+        if ($(this).is('select')) {
+            // For select elements, check if an option is selected
+            if ($(this)[0][0].textContent !== '' ) {
+                $(this).addClass('input-filled');
+            } else {
+                $(this).removeClass('input-filled');
+            }
         } else {
-            $(this).removeClass('input-filled');
+            // For non-select elements, continue with the existing behavior
+            if ($(this).val() !== '') {
+                $(this).addClass('input-filled');
+            } else {
+                $(this).removeClass('input-filled');
+            }
         }
     });
 

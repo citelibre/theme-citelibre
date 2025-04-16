@@ -8,7 +8,7 @@
 <#assign idName = buildEntryName( entry, entry_iteration_number )>
 <#if user??>
 <@cField label=entry.title! for=idName! required=entry.mandatory! class=entryClass! > 
-	<@cInput class=' form-control-input bg-transparent' name=idName placeholder=placeholder required=entry.mandatory! html5Required=false readonly=true disabled=true value=user.getUserInfo(fieldMyLuteceAttributeName.value) helpMsg=helpMsg errorMsg=errorMsg params=fieldParams />
+	<@cInput class='form-control-input text-bg-light' name=idName placeholder=placeholder required=entry.mandatory! html5Required=false readonly=true disabled=true value=user.getUserInfo(fieldMyLuteceAttributeName.value) helpMsg=helpMsg errorMsg=errorMsg params=fieldParams />
 </@cField>
 </#if>
 </#if>
