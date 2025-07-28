@@ -10,7 +10,7 @@
     <artifactId>site-theme-citelibre</artifactId>
     <packaging>lutece-site</packaging>
     <name>Site Theme CiteLibre</name>
-    <version>1.1.1</version>
+    <version>1.1.2-SNAPSHOT</version>
     <description></description>
     <scm>
         <connection>scm:git:https://github.com/citelibre/theme-citelibre.git</connection>
@@ -54,7 +54,7 @@
         <dependency>
             <groupId>fr.paris.lutece.plugins</groupId>
             <artifactId>library-theme-citelibre</artifactId>
-            <version>[1.1.0]</version>
+            <version>[1.1.2-SNAPSHOT]</version>
             <type>lutece-plugin</type>
         </dependency>
     </dependencies>
