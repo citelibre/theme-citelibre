@@ -104,3 +104,6 @@ DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.xss.xs
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.xss.xssChars', '<>#"&');
 DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.xss.xssMsg';
 INSERT INTO core_datastore VALUES ('themecitelibre.site_property.xss.xssMsg', 'Les caract\\u00e8res &#60; &#62; &#35; et &#34;  &amp; sont interdits dans le contenu de votre message.');
+DELETE FROM core_datastore WHERE entity_key='themecitelibre.site_property.Url.keycloack';
+INSERT INTO core_datastore VALUES ('themecitelibre.site_property.Url.keycloack', 'http://localhost:8080/rendezvous/servlet/plugins/oauth2/callback?data_client=authData');
+
