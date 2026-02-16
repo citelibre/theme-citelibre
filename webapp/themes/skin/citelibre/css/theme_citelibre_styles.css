@@ -1233,12 +1233,6 @@ a.white {
 	color: var( --gray-color );
 }
 
- .form-control-select {
-	padding-top: 0.95rem;
-	padding-bottom: 0.5rem;
-	height: 3rem;
-}
-
 .label-control-datepicker{ 
 	z-index: 99;
 }
@@ -1462,6 +1456,7 @@ input[type='checkbox'] {
 	opacity: 0.8;
 	font: 700 0.875rem/0.875rem "Open Sans", sans-serif;
 	text-decoration: none;
+	border-radius: 20px;
 }
 
 .navbar-custom .dropdown-item:hover {
@@ -2620,7 +2615,6 @@ input:required:invalid {
 
 /* Group Files */
 .group-files > .col > label{
-	margin-block-start: 1rem;
 	display: block;
 }
 
@@ -2867,12 +2861,11 @@ form .form-row.dropzone > .col > label{
 /***  								***/
 .col-osm{
 	height: 300px;
-	margin-top: 2rem;
+	margin-top: 15px
 }
 
 .openstreetmap-readonly .col-osm{
 	height: 150px;
-	margin-top: 15px
 }
 
 .list-osm-adress{

@@ -20,11 +20,11 @@ Parameters:
 <@deprecatedWarning args=deprecated />
 <#if !connected>
     <span class="nav-item">
-        <a class="btn-outline-sm" href="jsp/site/Portal.jsp?page=mylutece&action=login">LOG IN</a>
+        <a class="btn btn-outline-main" href="${urlConnect!}">#i18n{themecitelibre.labelConnect}</a>
     </span>
 <#else>
     <li class="nav-item dropdown<#if class !='' > ${class!}</#if>"<#if id !='' > id="${id!}"</#if><#if params!=''> ${params}</#if>">
-        <a class="btn-outline-sm dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">${userName?upper_case} </a>
+        <a class="btn btn-outline-main dropdown-toggle disabled" href="#" id="navbarDropdown" role="button" aria-haspopup="true" aria-expanded="false">${userName?upper_case} </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="${urlConnect!}" title="#i18n{themecitelibre.titleDisconnect}">
                 <i class="fa fa-power-off" aria-hidden="true"></i> 

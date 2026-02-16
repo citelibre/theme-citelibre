@@ -1,26 +1,10 @@
 <#assign userName='#i18n{themecitelibre.labelConnect}' >
-<#assign labelUserFullName='#i18n{themecitelibre.labelMonParis}' >
-<#assign labelUserMail='' >
+<#assign userEmail='' >
 <#assign urlMylutece='' />
 <#if user?has_content>
-<#assign labelIsConnected='#i18n{themecitelibre.labelIsConnected}' >
-<#assign userNameGiven=user.getUserInfo('user.name.given') >
-<#if user.getUserInfo('user.name.preferred')?has_content >
-<#assign userNameFamily=user.getUserInfo('user.name.preferred') > 
-<#assign urlMylutece=url_dologout />
+    <#assign userName=user.getUserInfo('user.name.given') >
+    <#assign urlMylutece=url_dologout >
 <#else>
-<#if urlMonCompte!?trim=''><#assign urlMylutece=urlMonCompte /><#else><#assign urlMylutece='jsp/site/Portal.jsp?page=mylutece&action=login' /></#if>
-<#assign userNameFamily=user.getUserInfo('user.name.family') >
+    <#assign urlMylutece=urlKeycloack >
 </#if>
-<#assign userValidated=user.getUserInfo('user.validated') > 
-<#if userNameGiven?has_content || userNameFamily?has_content><#assign labelUserFullName=userNameGiven + ' ' + userNameFamily ></#if>
-<#assign userBusinessMail=user.getUserInfo('user.business-info.online.email') >
-<#assign userHomeMail=user.getUserInfo('user.home-info.online.email') >
-<#if userBusinessMail?has_content><#assign labelUserMail=userBusinessMail ><#else><#assign labelUserMail=userHomeMail ></#if>
-<#assign userInitials><#if userNameGiven?trim=''>C<#elseif userNameGiven?matches(r"(\w+)-(\w+)") ><#list userNameGiven?split("-") as u>${u?capitalize[0..0]?cap_first}<#if u?index gt 2><#break></#if><#sep>-</#sep></#list><#else>${userNameGiven?capitalize[0..0]?cap_first}</#if></#assign>
-<#assign userSurname><#if userNameGiven?trim=''>${labelIsConnected!''}<#elseif userNameGiven?matches(r"(\w+) (\w+)")><#list userNameGiven?split(" ") as u>${u?capitalize?trim}<#break/></#list><#else>${userNameGiven!?trim}</#if></#assign>
-<#assign userName><@cInline class='user-initials'>${userInitials!?trim}</@cInline><@cInline class='user-name'>${userSurname!?trim}</@cInline></#assign>
-</#if>
-<@cMainNavUser connected=user?has_content userName=userName userFullName=labelUserFullName userEmail=labelUserMail urlConnect=urlMylutece userInitials=userInitials btnToggle=true  class=''>
-${favorites!}
-</@cMainNavUser>
+<@cMainNavUser connected=user?has_content userName=userName urlConnect=urlMylutece  />

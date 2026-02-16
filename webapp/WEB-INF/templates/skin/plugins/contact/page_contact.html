@@ -40,7 +40,7 @@
 							<@cField label='#i18n{contact.page_contact.message}' for='message'>
 								<@cTextArea name='message' helpMsg='#i18n{contact.page_contact.characterMax}' required=true >${message!}</@cTextArea>
 							</@cField>
-							<#if is_active_captcha><@cField>${captcha}</@cField></#if>
+							<#if is_active_captcha>${captcha}</#if>
 							<#if is_tos_required>
 								<@cField label=''>
 									<@cCheckbox name='accept_tos' label='${tos_message}' checked=accept_tos value='1' required=true />

@@ -46,10 +46,9 @@
 <#assign footerSocialLinkLi>https://www.linkedin.com/company/citelibre/</#assign>
 <#assign hasSiteMap><#if !dskey('themecitelibre.site_property.menu.siteMapMenu.checkbox')?starts_with('DS') &&  dskey('themecitelibre.site_property.menu.siteMapMenu.checkbox') =='1'>true<#else>false</#if></#assign>
 <#-- END FOOTER MANAGEMENT    -->
-<#-- MON PARIS MANAGEMENT     -->
-<#assign urlMonCompte='' />
-<#assign urlKeycloack>${dskey('themecitelibre.site_property.Url.keycloack')!'https://v70-auth.citelibre.fr/'}</#assign>
-<#-- END MON PARIS MANAGEMENT -->
+<#-- BEGIN CITELIBRE MANAGEMENT     -->
+<#assign urlKeycloack>${dskey('themecitelibre.site_property.Url.keycloack')!}</#assign>
+<#-- END MCITELIBRE MANAGEMENT -->
 <#-- BANNER MANAGEMENT        -->
 <#assign hasBanner><#if !dskey('themecitelibre.site_property.banner.shown.checkbox')?starts_with('DS') &&  dskey('themecitelibre.site_property.banner.shown.checkbox') =='1'>true<#else>false</#if></#assign>
 <#assign urlDefaultBannerImage>${dskey('themecitelibre.site_property.banner')}</#assign>

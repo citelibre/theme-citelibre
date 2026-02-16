@@ -188,20 +188,38 @@ $( function(){
     
     /* Move Form Fields Label When User Types */
     // for input and textarea fields
-    $('.form-control-input').change( function(e){
-		if ( $(this).val() != '' ) {
-			$(this).addClass('input-filled');
-		} else {
-			$(this).removeClass('input-filled');
-		}
+    // Initialize form-control-input fields on page load
+    $('.form-control-input, select, input[type=time]').each(function() {
+        if ($(this).is('select')) {
+            // For select elements, check if an option is selected
+            if ($(this)[0][0].textContent !== '' ) {
+                $(this).addClass('input-filled');
+            } 
+        } else {
+            // For non-select elements, continue with the existing behavior
+            if ($(this).val() !== '') {
+                $(this).addClass('input-filled');
+            } 
+        }
     });
 
-    $('select, input[type=time]').blur( function(e){
-		if ( $(this).val() != '' ) {
-			$(this).addClass('input-filled');
-		} else {
-			$(this).removeClass('input-filled');
-		}
+    // Add event listeners for real-time validation
+    $('.form-control-input, select, input[type=time]').on('input change blur', function() {
+        if ($(this).is('select')) {
+            // For select elements, check if an option is selected
+            if ($(this)[0][0].textContent !== '' ) {
+                $(this).addClass('input-filled');
+            } else {
+                $(this).removeClass('input-filled');
+            }
+        } else {
+            // For non-select elements, continue with the existing behavior
+            if ($(this).val() !== '') {
+                $(this).addClass('input-filled');
+            } else {
+                $(this).removeClass('input-filled');
+            }
+        }
     });
 
     /* Back To Top Button */

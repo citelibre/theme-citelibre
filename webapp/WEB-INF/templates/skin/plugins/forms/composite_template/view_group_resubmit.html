@@ -1,8 +1,9 @@
 <#if visible>
+	<#assign isShownTitle><#if group.title?ends_with('hidden')>false<#else>true</#if></#assign>
 	<#assign classDisp><#if id_display??>display_field_${id_display}</#if></#assign>
 	<@cRow class=classDisp>
 		<@cCol>
-			<@cTitle level=2>${group.title!}</@cTitle>
+			<#if isShownTitle><@cTitle level=2>${group.title!}</@cTitle></#if>
 			<#list groupContent as childrenHtml>
 				${childrenHtml!}
 			</#list>
