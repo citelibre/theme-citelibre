@@ -22,12 +22,16 @@ Parameters:
 @param - searchSolr - boolean - required - si "true" fait la recherche sur Solr et non sur le moteur de recherche par défaut.
 @param - searchParams - string - optional - tous champs à ajouter au formulaire nécessitent typeSearch='field'
 @param - hasLogin - boolean - required - si true, le site est authentifié et propose un bouton de login (connexion Mon Paris)
+@param - hasLuteceMenuItem - boolean - si true affiche le lien vers le site Lutece
+@param - hasLangMenuItem - boolean - si true affiche le menu des langues
+@param - hasDarkLightMenuItem - boolean - si true affiche le menu dark / Light
+@param - hasContactMenuItem - boolean - si true affiche le menu Contact
 @param - loginClass - string - optional - classe CSS pour le bouton de login
 @param - mainClass - string - optional - classe CSS pour la balise main
 @param - role - string - required - role aria par défaut
 @param - params - string - optional - permet d'ajouter des paramètres HTML à la barre de navigation
 -->
-<#macro cMainNav title=favourite logoImg='' href='.' hasMenu=hasDefaultMenu?boolean hasNestedMenu=true isSidebar=isMainSidebarMenu?boolean isSibebarCollapsible=isMainSidebarMenuCollapse?boolean sidebarMenuClass='' isOnlyHome=isBannerOnlyHome showDefaultMenu=true hasSearchMenu=false typeSearch='field' searchUrl=urlDefaultSearch searchAction='jsp/site/Portal.jsp' searchSolr=false searchParams='' isFixed=isFixedMenu?boolean hasLogin=true loginClass='' mainClass='' id='' class='' role='' params='' deprecated...>
+<#macro cMainNav title=favourite logoImg='' href='.' hasMenu=hasDefaultMenu?boolean hasNestedMenu=true isSidebar=isMainSidebarMenu?boolean isSibebarCollapsible=isMainSidebarMenuCollapse?boolean sidebarMenuClass='' isOnlyHome=isBannerOnlyHome showDefaultMenu=true hasSearchMenu=false typeSearch='field' searchUrl=urlDefaultSearch searchAction='jsp/site/Portal.jsp' searchSolr=false searchParams='' isFixed=isFixedMenu?boolean hasLuteceMenuItem=true hasLangMenuItem=true hasDarkLightMenuItem=true hasContactMenuItem=true hasLogin=true loginClass='' mainClass='' id='' class='' role='' params='' deprecated...>
 <@deprecatedWarning args=deprecated />
 <#assign pageId><#if page_id??>${page_id}<#else>0</#if></#assign>
 <header class="theme-main-header<#if isFixed> is-fixed</#if><#if hasBanner?boolean><#if isOnlyHome><#if pageId?number = 1> has-banner</#if><#else> has-banner</#if></#if>" id="main-banner-${page_id!'themecitelibre'}" role="banner">
@@ -71,15 +75,22 @@ Parameters:
                         </form>  
                     </nav>
                 </#if>
-            	<li class="nav-item">
+ 				<#if hasLuteceMenuItem>
+ 				<li class="nav-item">
                     <a class="nav-link" title="LUTECE [Nouvelle fenêtre]" target="_blank" href="https://lutece.paris.fr/">LUTECE</a>
                 </li>
-	            <li class="nav-item">
+				</#if>
+				<#if hasContactMenuItem>	            
+				<li class="nav-item">
 		            <a class="nav-link" href="jsp/site/Portal.jsp?page=contact&amp;view=viewContactPage&amp;id_contact_list=1&amp;message_object=Ask%20for%20a%20demo&amp;contact=1" title="contacts">CONTACT</a>
 	            </li>
+				</#if>
+				<#if hasLogin>
                 <li class="nav-item">
-                    <#if hasLogin>${pageinclude_userlogin?default("")}</#if>
+                    ${pageinclude_userlogin?default("")}
                 </li>
+				</#if>
+				<#if hasLangMenuItem>	
                 <li class="nav-item ms-2">
                     <a href="/fr/">
                         <img class="img-fluid" width="18" src="images/fr.svg" alt="fr" title="Français">
@@ -92,12 +103,15 @@ Parameters:
                         <span class="visually-hidden">English</span>
                     </a>
                 </li>
+				</#if>
+				<#if hasDarkLightMenuItem>	
                 <li class="nav-item">    
                     <label class="nav-dark-mode" for="darkSwitch" title="Switch Dark/light mode"><span class="visually-hidden">Dark Mode </span>
                         <input type="checkbox" id="darkSwitch" class="visually-hidden" />
                         <i class="fa fa-sun"></i><i class="fa fa-moon"></i>
                     </label>
                 </li>
+				</#if>
             </ul>
         </#if>
         </div>
