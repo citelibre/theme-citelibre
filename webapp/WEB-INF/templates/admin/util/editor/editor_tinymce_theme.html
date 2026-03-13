@@ -54,6 +54,12 @@ templates : [
 ]</#assign>
 <#macro setEditorConfigOptionScript>
 <#-- Add options to config as a script after config init , like add a plugin and set an icon in menu -->
+// Désactive le nettoyage automatique du contenu
+verify_html: false,
+// Autorise tous les éléments et attributs
+valid_elements: '*[*]',
+// Autorise tous les éléments en mode étendu (enfants, attributs, styles)
+extended_valid_elements: '*[*]',
 editorConfig.plugins.push('template')
 editorConfig.toolbar += ' template' 
 editorConfig.content_css = 'themes/skin/citellibre/css/theme_citelibre_styles.css, themes/skin/citellibre/css/page_template_styles.css,css/page_template_styles.css'
