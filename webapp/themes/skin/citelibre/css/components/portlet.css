@@ -5,11 +5,6 @@
 	background-color: var(--theme-bg-default) !important;
 }
 
-.portlet.card,
-.portlet.card .card-header{
-	background-color: var(--white-color) !important;
-}
-
 .portlet.card .card-header{
 	border-bottom: 0;
 	padding-inline-start: var(--spacing-m);
