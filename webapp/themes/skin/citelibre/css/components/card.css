@@ -2,7 +2,7 @@
 /*** Card							***/
 /***  								***/
 .card{
-	background: var(--white-light-color) 0% 0% no-repeat padding-box;
+	background: transparent 0% 0% no-repeat padding-box;
 	border: 0;
 	border-radius: 0;
 	container-type: inline-size;
