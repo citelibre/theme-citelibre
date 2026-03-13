@@ -31,7 +31,7 @@ Parameters:
 @param - role - string - required - role aria par défaut
 @param - params - string - optional - permet d'ajouter des paramètres HTML à la barre de navigation
 -->
-<#macro cMainNav title=favourite logoImg='' href='.' hasMenu=hasDefaultMenu?boolean hasNestedMenu=true isSidebar=isMainSidebarMenu?boolean isSibebarCollapsible=isMainSidebarMenuCollapse?boolean sidebarMenuClass='' isOnlyHome=isBannerOnlyHome showDefaultMenu=true hasSearchMenu=false typeSearch='field' searchUrl=urlDefaultSearch searchAction='jsp/site/Portal.jsp' searchSolr=false searchParams='' isFixed=isFixedMenu?boolean hasLuteceMenuItem=true hasLangMenuItem=true hasDarkLightMenuItem=true hasContactMenuItem=true hasLogin=true loginClass='' mainClass='' id='' class='' role='' params='' deprecated...>
+<#macro cMainNav title=favourite logoImg='images/logo-pack-light.min.svg' href='.' hasMenu=hasDefaultMenu?boolean hasNestedMenu=true isSidebar=isMainSidebarMenu?boolean isSibebarCollapsible=isMainSidebarMenuCollapse?boolean sidebarMenuClass='' isOnlyHome=isBannerOnlyHome showDefaultMenu=true hasSearchMenu=false typeSearch='field' searchUrl=urlDefaultSearch searchAction='jsp/site/Portal.jsp' searchSolr=false searchParams='' isFixed=isFixedMenu?boolean hasLuteceMenuItem=true hasLangMenuItem=true hasDarkLightMenuItem=true hasContactMenuItem=true hasLogin=true loginClass='' mainClass='' id='' class='' role='' params='' deprecated...>
 <@deprecatedWarning args=deprecated />
 <#assign pageId><#if page_id??>${page_id}<#else>0</#if></#assign>
 <header class="theme-main-header<#if isFixed> is-fixed</#if><#if hasBanner?boolean><#if isOnlyHome><#if pageId?number = 1> has-banner</#if><#else> has-banner</#if></#if>" id="main-banner-${page_id!'themecitelibre'}" role="banner">
@@ -42,7 +42,7 @@ Parameters:
         <!-- <a class="navbar-brand logo-text page-scroll" href="index.html">Tivo</a> -->
         <!-- Image Logo -->
         <a class="navbar-brand logo-image text-decoration-none" href=".">
-            <img src="images/logo-pack-light.min.svg" alt="alternative">
+            <img src="${logoImg!}" alt="alternative">
         </a> 
         <!-- Mobile Menu Toggle Button -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-citelibre" aria-controls="navbarscitelibreDefault" aria-expanded="false" aria-label="Toggle navigation">
