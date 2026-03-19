@@ -1,7 +1,7 @@
 <#-- PARIS ICON PACK   -->
 <#macro citelibreIconPack>
 <!-- SVG citelibre icon-set     -->
-<svg class="citelibre-icon-sprite">
+<svg class="citelibre-icon-sprite visually-hidden">
 	<defs>
 		<!-- LOGO  -->
 		<symbol id="citelibre-icon-nef" viewBox="0 0 24 24">
