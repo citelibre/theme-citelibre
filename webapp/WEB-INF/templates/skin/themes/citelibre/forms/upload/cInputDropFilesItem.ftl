@@ -58,12 +58,12 @@ Parameters:
 </#switch>
 </#if>
 <#if ext = ''><#local ext=name?keep_after_last('.') /></#if>
-<li class="files-item<#if class!=''> ${class}</#if>" id="_file_uploaded_${name}${idx}">
+<li class="files-item pt-4<#if class!=''> ${class}</#if>" id="_file_uploaded_${name}${idx}">
     <label class="files-item-label<#if image=true> image</#if>" for="${cId}">
         <#if image=true><img src="themes/shared/images/none.svg" alt="" width="80" height="80"></#if>
-        <a href="${cUrlDl}" class="files-item-link" title="#i18n{portal.util.labelDownload} ${label}" data-type="${ext!}" data-img="">
-            <span class="file-item-label">${fileLabel}</span>
-            <span class="file-item-info"><#if fileSize?has_content>${octetNumber?string["0"]} ${octetUnit}</#if></span>
+        <a href="${cUrlDl}" class="files-item-link ps-4" title="#i18n{portal.util.labelDownload} ${label}" data-type="${ext!}" data-img="">
+            <span class="file-item-label text-white">${fileLabel}</span>
+            <span class="file-item-info text-white"><#if fileSize?has_content>${octetNumber?string["0"]} ${octetUnit}</#if></span>
         </a>
     </label>
     <button type="button" class="btn btn-link main-color deleteSingleFile p-0"<#if cUrlRm !=''> data-url="${cUrlRm!}"</#if> data-item="#_file_uploaded_${name}${idx}" fieldName="${name}" handlerName="${handlerName!}" index="${idx}" title="#i18n{portal.util.labelDelete} ${fileLabel}"> 
