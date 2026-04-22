@@ -1630,7 +1630,7 @@ input[type='checkbox'] {
 }
 
 .card{
-	background: var( --white-color ) 0% 0% no-repeat padding-box;
+	background: transparent 0% 0% no-repeat padding-box;
 	box-shadow: 0px 10px 20px var( --card-color-shadow );
 	border: 0;
 	-webkit-border-radius: 0;

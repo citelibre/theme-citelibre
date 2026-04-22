@@ -3,7 +3,7 @@
 <#assign param><#if id_display??> hidden </#if></#assign>
 <@cRow class=classDisp params=param >
 	<@cCol>
-		<#if isShownTitle><@cTitle level=2>${group.title!}</@cTitle></#if>
+		<#if isShownTitle?boolean><@cTitle level=2>${group.title!}</@cTitle></#if>
 		<#list groupContent as childrenHtml>
 			${childrenHtml}
 		</#list>

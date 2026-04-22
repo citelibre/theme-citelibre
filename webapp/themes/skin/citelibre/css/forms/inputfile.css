@@ -189,7 +189,6 @@ form .form-row.dropzone > .col > label{
 
 .files-item-link .file-item-info {
     font-size: var(--font-sm);
-    color: var(--main-color);
     font-weight: 400;
 	margin-block-start: var(--spacing-xs);
 }
