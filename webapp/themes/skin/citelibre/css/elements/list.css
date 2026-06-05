@@ -1,20 +1,17 @@
+/*** 										***/
+/*** List styles							***/
+/***  										***/
 ul,
 ol,
 li {
-	font-family: var(--font-family-list);
+	font-family: var(--lutece-ds-font-family-base);
 	font-weight: 400;
-	line-height: var(--line-height-m);
-	font-size: var(--font-m);
+	font-size: var(--lutece-ds-font-size-lg);
 }
 
-/* Small devices and below (small phone, 360px and below) */ 
-@media ( max-width:  358.98px ) {
-	ul,
-	ol,
-	li{
-		font-size: var( --font-sm );
-		line-height: var( --line-height-sm );
-	}
+ul li::marker {
+   color: var(--lutece-ds-color-primary);
+   font-size: var(--lutece-ds-font-size-3xl);
 }
 
 ol li::marker {
@@ -25,24 +22,11 @@ ol li::marker::after {
 	content: '.';
 }
 
-ul > li > ul:first-of-type,
-ol > li > ol:first-of-type{
-	margin-block-start: var( --spacing-xs );
-}
-/* 
-ul{
-	padding-inline-start: 0;
-} */
-
-/* Jquery Ui - Ovverides - REMOVE ASAP */
-.ui-menu-item > a{
-	color: var(--main-color);
-	padding: var(--spacing-xs);
-	text-decoration: none;
-	border-radius: 0;
-}
-
-.ui-menu-item:hover > a{
-	color: var(--white-color);
-	background-color: var(--main-color);
+/* Small devices and below (small phone, 360px and below) */ 
+@media ( max-width:  358.98px ) {
+	ul,
+	ol,
+	li{
+		font-size: var( --lutece-ds-font-size-sm );
+	}
 }

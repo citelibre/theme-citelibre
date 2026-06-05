@@ -11,21 +11,50 @@
 	display: none !important;
 }
 
-/* Thumbnails */
-.img-thumbnail-xs {
-    max-width: 15% !important;
+.bg-cover {
+	background-size: cover;
+	background-position: center center;
+	background-repeat: no-repeat;
 }
 
-.img-thumbnail-sm {
-    max-width: 25% !important;
+.border-default {
+	border-color: var( --lutece-ds-border-default-color ) !important;
 }
 
-.img-thumbnail-md {
-    max-width: 50% !important;
+/* overlay */
+.overlay {
+	position: relative;
 }
 
-.img-thumbnail-lg {
-    max-width: 75% !important;
+.overlay::before {
+	position: absolute;
+	content: "";
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	background: #000;
+	opacity: .5;
+}
+
+.outline-0 {
+	outline: 0 !important;
+}
+
+.rounded, .card-icon, .card {
+	border-radius: 12px !important;
+}
+
+.d-unset {
+	display: unset !important;
+}
+
+.w-half{
+	width: 50% !important;
+}
+
+.shadow{
+	box-shadow: 0px 15px 60px rgba(62, 62, 62, 0.102) !important;
 }
 
 /* Remove shadow on card... 		*/
@@ -33,37 +62,6 @@
 	box-shadow: none !important;
 }
 
-.vh-50{ 
-	height:50vh; 
-}
-
-/* TODO TO REMOVE ASAP IF BS 5 */
-.flex-1 {
-	flex: 1
-}
-
-.z-1{
-	z-index: 1;
-}
-
-/* Go to Top */
-.btn-gototop {
-	position: fixed !important;
-	bottom: 3rem !important;      
-	right: 1.5rem !important; 
-}
-
-@media (max-width: 992px) {
-	 .btn-gototop {
-		right: .25rem !important; 
-		padding: var(--spacing-xxs) var(--spacing-xs) !important;      
-		font-size: var(--font-xl) !important;      
-	} 
-	
-	.btn-gototop > .btn-label{
-		display: none;      
-	}
-}
 
 @media (prefers-reduced-motion) {
 	*, *::before, *::after {

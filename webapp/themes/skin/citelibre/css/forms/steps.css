@@ -2,7 +2,7 @@
 /*** Forms Validation Screen				***/
 /***  										***/
 .form-submited {
-	margin: var(--spacing-ml) 15%;
+	margin: var(--lutece-ds-spacing-md-loose) 15%;
 }
 
 /*  Summary of a submission 					 */
@@ -11,7 +11,7 @@
 }
 
 #summary-validate .card>.card-heading>.card-title {
-	margin-inline-start: var(--spacing-ml);
+	margin-inline-start: var(--lutece-ds-spacing-md-loose);
 	position: relative;
 }
 
@@ -22,21 +22,21 @@
 	left: -4rem;
 	border-radius: 50%;
 	padding: 1rem;
-	background-color: var(--card-title-icon);
-	border-color: var(--card-title-icon);
-	color: var(--white-color);
+	background-color: var(--lutece-ds-color-icon-card-title);
+	border-color: var(--lutece-ds-color-icon-card-title);
+	color: var(--lutece-ds-color-white);
 }
 
 #summary-validate .summary-actions {
 	position: sticky;
 	top: 2rem;
 	bottom: 0;
-	background-color: var(--white-color);
+	background-color: var(--lutece-ds-color-white);
 	padding: 1rem 0;
 }
 
 #summary-validate .summary-actions.actions_shadow {
-	box-shadow: 0 -.5rem .5rem 0 var(--card-color-shadow);
+	box-shadow: 0 -.5rem .5rem 0 var(--lutece-ds-shadow-color-card);
 }
 
 .summary-steps .step.step-done:first-of-type{
@@ -56,13 +56,20 @@ header+main form .step.step-done~.step.step-done,
 header+main form .step.step-done~.step.step-current,
 header+main .breadcrumb-nav+form .step,
 #main-banner+header+main form .step {
-	margin-block-start: 0
+	margin-block-start: 0;
+	padding-block: 0;
+	text-align: start;
+
 }
 
 /* 		Steps Commons	 					*/
+.step + .step {
+	padding-block : 0
+}
+
 .step-title {
-	border-bottom: .1rem solid var(--blue-light);
-	border-top: .1rem solid var(--blue-light);
+	border-bottom: .1rem solid var(--lutece-ds-color-blue-300);
+	border-top: .1rem solid var(--lutece-ds-color-blue-300);
 	height: 9rem;
 	display: flex;
 	align-items: center;
@@ -79,32 +86,30 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-title .title {
-	color: var(--main-info-color);
+	color: var(--lutece-ds-color-primary);
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	/* justify-content: space-between; */
 }
 
 /* 		Step Title Icon / Number				 */
 .step-title .title .step-number {
-	border: .4rem solid var(--main-info-color);
+	border: .4rem solid var(--lutece-ds-color-primary);
 	border-radius: 100%;
-	margin-top: .5rem;
-	margin-right: var(--spacing-m);
-	padding-top: 0.1rem;
-	height: 5rem;
-	width: 5rem;
+	/* margin-top: .5rem; */
+	margin-right: var(--lutece-ds-spacing-md);
+	height: 4rem;
+	width: 4rem;
 	background: none;
 	text-align: center;
-	line-height: 4rem;
 	content: attr(data-step);
-	font-family: var(--font-family-list);
+	font-family: var(--lutece-ds-font-family-base);
 	font-weight: 900;
 	font-size: 2.7rem;
 }
 
 .step-title .title .step-number+span {
-	flex: 1;
+	/* flex: 1; */
 	width: fit-content;
 	position: static;
 	overflow: hidden;
@@ -114,26 +119,14 @@ header+main .breadcrumb-nav+form .step,
 
 .step-content {
 	position: relative;
-	padding: var(--spacing-l);
-}
-
-/* Set no group fields look like group ones */
-.step-current .step-content > .col {
-	background-color: var(--white-color);
-    border-radius: 0;
-    padding: var(--spacing-xs) var(--spacing-l);
-    margin-block: 0;
-}
-
-/* Set group margin */
-.step-current .step-content > .row {
-    margin-block-end: var(--spacing-l);
+	padding: var(--lutece-ds-spacing-lg);
+	text-align: start;
 }
 
 /* Previous Steps  									*/
 .step-done {
 	padding-bottom: 2rem;
-	border-top: .1rem solid var(--blue-light);
+	border-top: .1rem solid var(--lutece-ds-color-blue-300);
 }
 
 .step-done .step-title {
@@ -148,16 +141,16 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-done .step-title .title .step-number {
-	background: var(--main-info-color);
+	background: var(--lutece-ds-color-primary);
 	flex-shrink: 0;
 }
 
 .step-done .step-content {
-    padding: 0 0 0 calc( var(--spacing-xl) + 1.75rem );
+    padding: 0 0 0 calc( var(--lutece-ds-spacing-xl) + 1.75rem );
 }
 
 .step-done strong {
-	font-family: var(--font-family-list);
+	font-family: var(--lutece-ds-font-family-base);
 	font-weight: 500;
 	line-height: 1.5rem;
 }
@@ -178,26 +171,26 @@ header+main .breadcrumb-nav+form .step,
 
 /** 		Current Step 								**/
 .step-current {
-	background-color: var(--white-light-color);
-	margin-block-start: 0;
+	background-color: var(--lutece-ds-color-neutral-100);
 }
 
+
 .step-current .step-title {
-	background-color: var(--main-info-color);
-	margin-block-end: var(--spacing-m );
+	background-color: var(--lutece-ds-color-primary);
+	margin-block-end: var(--lutece-ds-spacing-md );
 	position: relative;
 }
 
 .step-current .step-title .title{
-	color: var(--white-color);
+	color: var(--lutece-ds-color-white);
 	position: relative;
-	margin-block-start: 0;
-	height: var(--spacing-xl);
+	margin-block: 0;
+	height: var(--lutece-ds-spacing-xl);
 }
 
 .step-current .step-title .title .step-number {
-	color: var(--white-color);
-	border-color: var(--white-color);
+	color: var(--lutece-ds-color-white);
+	border-color: var(--lutece-ds-color-white);
 	flex-shrink: 0;
 }
 
@@ -210,32 +203,32 @@ header+main .breadcrumb-nav+form .step,
 }
 
 /* Arrow 											*/
-.step-current .step-title .title::after {
+/* .step-current .step-title .title::after {
 	content: '';
 	width: 0;
 	height: 0;
 	position: absolute;
-	border-top: 2.3rem solid var(--main-info-color);
+	border-top: 2.3rem solid var(--lutece-ds-color-primary);
 	border-bottom: 1.1rem solid transparent;
 	border-left: 5rem solid transparent;
 	border-right: 5rem solid transparent;
 	left: 50%;
-	bottom: calc( var(--spacing-m) * -2.04 );
-	margin-inline-start: calc( var(--spacing-m) * -2.5 );
-}
+	bottom: calc( var(--lutece-ds-spacing-md) * -2.04 );
+	margin-inline-start: calc( var(--lutece-ds-spacing-md) * -2.5 );
+} */
 
 /* 	Current Step Group								*/
 .step-current .step-content .step-group {
-	background-color: var(--white-color);
+	background-color: var(--lutece-ds-color-white);
 	border-radius: 0;
-	padding: var(--spacing-l);
+	padding: var(--lutece-ds-spacing-xs) var(--lutece-ds-spacing-md);
 }
 
 .step-current .step-content .form-row.step-group header[class*=col-]{
-	border-bottom: .6rem solid var(--white-light-color);
+	border-bottom: .6rem solid var(--lutece-ds-color-neutral-100);
 	justify-content: space-between;
 	padding-inline: 0;
-	padding-block-end: var(--spacing-m);
+	padding-block-end: var(--lutece-ds-spacing-md);
 }
 
 .step-current .step-content .step-group .group-title {
@@ -249,8 +242,12 @@ header+main .breadcrumb-nav+form .step,
 	margin-bottom: 3.5rem;
 }
 
+.step-current .step-content .mandatory-warning {
+	margin-block: var(--lutece-ds-spacing-lg );
+}
+
 .step-current .step-content .step-group.form-row>.col, .step-current .step-content .step-group.form-row>[class*=col-] {
-    padding-inline: 0 var(--spacing-ml);
+    padding-inline: 0 var(--lutece-ds-spacing-md-loose);
 }
 
 /* Ensure group iteration can be scrolled to the top of the screen */
@@ -310,7 +307,7 @@ a[name^="last_"]:before {
 	}
 
 	.step-current .step-content .mandatory-warning {
-		font-size: var( --font-m );
+		font-size: var( --lutece-ds-font-size-lg );
 		font-weight: 300;
 	}
 
@@ -334,7 +331,7 @@ a[name^="last_"]:before {
 
 @media (max-width: 767.98px) {
 	header+main form .step {
-		margin-block-start: calc( var(--size-base, .4rem ) * 20 );
+		margin-block-start: calc( var(--lutece-ds-size-base, .4rem ) * 20 );
 	}
 	
 	.step-current .step-content {
@@ -343,11 +340,11 @@ a[name^="last_"]:before {
 	
 	.step-done .step-content h2{
 		margin-block-start: 0;
-		margin-block-end: var(--spacing-sm);
+		margin-block-end: var(--lutece-ds-spacing-sm);
 	}
 
 	.step .step-content .step-group {
-		padding: var( --spacing-xs );
+		padding: var( --lutece-ds-spacing-xs );
 	}
 
 	.step-current .step-content .step-group.form-row >.col, 

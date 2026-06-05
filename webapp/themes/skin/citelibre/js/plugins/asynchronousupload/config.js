@@ -1,10 +1,14 @@
 function getTemplateUploadedFile( fieldName, index, checkboxPrefix, jsonData, imgTag, handler, baseUrl, deleteLabel, unit='' ) {
-let strCode='', sizeDisplay='', sizeTemp='', octetUnit='', octetNumber='', fileName='', fileDisplayName='', mimeType='', mimeTypeDisplay='';
-if ( (typeof jsonData.files[index] != 'undefined' && jsonData.files[index].size != 'undefined' ) || (jsonData.files.size != 'undefined' ) ) {
+	let strCode='', sizeDisplay='', sizeTemp='', octetUnit='', octetNumber='', fileName='', fileDisplayName='', mimeType='', mimeTypeDisplay='';
+
+	if ( (typeof jsonData.files[index] != 'undefined' && jsonData.files[index].size != 'undefined' ) || (jsonData.files.size != 'undefined' ) ) {
+
 		sizeTemp = (jsonData.fileCount == 1) ? jsonData.files.size : jsonData.files[index].size;
 		fileName = (jsonData.fileCount == 1) ? jsonData.files.name : jsonData.files[index].name;
 		mimeType = (jsonData.fileCount == 1) ? jsonData.files.preview : jsonData.files[index].preview;
+		
 		fileDisplayName=fileName;
+
 		mimeTypeDisplay = mimeType !='' ? mimeType.match(/[^:/]\w+(?=;|,)/)[0] : fileName.substr( ( fileName.lastIndexOf(".") + 1 ), ( fileName.length - fileName.lastIndexOf(".") ) );
 		switch ( unit ) {
 			case 'Mo':
@@ -33,17 +37,18 @@ if ( (typeof jsonData.files[index] != 'undefined' && jsonData.files[index].size 
 				  octetNumber = sizeTemp/(1024*1024);
 			  }
 		}
-		sizeDisplay = '' + Number.parseFloat(octetNumber).toFixed(2) + ' ' + octetUnit;
+		// sizeDisplay = "" + Math.floor(octetNumber) + " " + octetUnit;
+		sizeDisplay = "" + Number.parseFloat(octetNumber).toFixed(2) + " " + octetUnit;
+		
    }
 
    if( fileDisplayName.length > 60 ){
 	   fileDisplayName = fileName.substr(0,55) + '...';
    }
-   const labelClassName = imgTag !='' ? 'image' : '';
-   
+
    strCode = `<li class="files-item" id="_file_uploaded_${fieldName}${index}">
-   <label class="files-item-label ${labelClassName}" for="${checkboxPrefix}${index}">
-      ${imgTag}
+   <label class="files-item-label" for="${checkboxPrefix}${index}">
+	   <input type="checkbox" name="${checkboxPrefix}${index}" id="${checkboxPrefix}${index}"> 
 	   <a class="files-item-link" title="${fileName}" href="jsp/site/plugins/asynchronousupload/DoDownloadFile.jsp?fieldname=${fieldName}&field_index=${index}&fileName=${fileName}&asynchronousupload.handler=${handler}" data-type="${mimeTypeDisplay}" data-img="">
 		   <span class="file-item-label">${fileDisplayName}</span>
 		   <span class="file-item-info">${sizeDisplay}</span>

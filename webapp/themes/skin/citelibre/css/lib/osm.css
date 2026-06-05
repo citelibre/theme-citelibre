@@ -7,11 +7,11 @@
 
 .openstreetmap-readonly .col-osm {
 	height: 15rem;
-	margin-block-start: 0
+	margin-block-start;: 1.5rem
 }
 
 .col.col-osm.osm-map {
-	margin-inline-start: 0;
+	margin-inline-start: .5rem;
 }
 
 .col.col-osm.list-group {
@@ -26,18 +26,18 @@
 
 .col.col-osm.list-group .list-group-item:hover {
 	cursor: pointer;
-	background-color: var(--white-light-color);
+	background-color: var(--lutece-ds-color-neutral-100);
 }
 
 .col.col-osm.list-group .list-group-item.active {
-	background-color: var(--main-info-color);
-	border-color: var(--main-info-color);
+	background-color: var(--lutece-ds-color-primary);
+	border-color: var(--lutece-ds-color-primary);
 }
 
 .btn-osm {
 	position: absolute;
-	top: 6rem;
-	right: .5rem;
+	top: 3rem;
+	right: 3rem;
 }
 
 .openstreetmap {
