@@ -64,15 +64,6 @@ label {
 	box-shadow: none;
 }
 
-.form-select {
-	font-size: 13px;
-	color: #999;
-	border: 0;
-	border-bottom: 1px solid #E2E2E2;
-	border-radius: 0;
-	padding: 10px 0;
-}
-
 /* Invalid */
 .invalid-feedback {
 	font-size: var(--lutece-ds-font-size-xs);
