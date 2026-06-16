@@ -2,7 +2,7 @@
 /*** Forms Validation Screen				***/
 /***  										***/
 .form-submited {
-	margin: var(--lutece-ds-spacing-md-loose) 15%;
+	margin: var(--lutece-ds-sp-md-loose) 15%;
 }
 
 /*  Summary of a submission 					 */
@@ -11,7 +11,7 @@
 }
 
 #summary-validate .card>.card-heading>.card-title {
-	margin-inline-start: var(--lutece-ds-spacing-md-loose);
+	margin-inline-start: var(--lutece-ds-sp-md-loose);
 	position: relative;
 }
 
@@ -22,16 +22,16 @@
 	left: -4rem;
 	border-radius: 50%;
 	padding: 1rem;
-	background-color: var(--lutece-ds-color-icon-card-title);
-	border-color: var(--lutece-ds-color-icon-card-title);
-	color: var(--lutece-ds-color-white);
+	background-color: var(--lutece-ds-icon-card-title);
+	border-color: var(--lutece-ds-icon-card-title);
+	color: var(--lutece-ds-white);
 }
 
 #summary-validate .summary-actions {
 	position: sticky;
 	top: 2rem;
 	bottom: 0;
-	background-color: var(--lutece-ds-color-white);
+	background-color: var(--lutece-ds-white);
 	padding: 1rem 0;
 }
 
@@ -68,8 +68,8 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-title {
-	border-bottom: .1rem solid var(--lutece-ds-color-blue-300);
-	border-top: .1rem solid var(--lutece-ds-color-blue-300);
+	border-bottom: .1rem solid var(--lutece-ds-blue-300);
+	border-top: .1rem solid var(--lutece-ds-blue-300);
 	height: 9rem;
 	display: flex;
 	align-items: center;
@@ -86,7 +86,7 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-title .title {
-	color: var(--lutece-ds-color-primary);
+	color: var(--lutece-ds-primary);
 	display: flex;
 	align-items: center;
 	/* justify-content: space-between; */
@@ -94,10 +94,10 @@ header+main .breadcrumb-nav+form .step,
 
 /* 		Step Title Icon / Number				 */
 .step-title .title .step-number {
-	border: .4rem solid var(--lutece-ds-color-primary);
+	border: .4rem solid var(--lutece-ds-primary);
 	border-radius: 100%;
 	/* margin-top: .5rem; */
-	margin-right: var(--lutece-ds-spacing-md);
+	margin-right: var(--lutece-ds-sp-md);
 	height: 4rem;
 	width: 4rem;
 	background: none;
@@ -119,14 +119,14 @@ header+main .breadcrumb-nav+form .step,
 
 .step-content {
 	position: relative;
-	padding: var(--lutece-ds-spacing-lg);
+	padding: var(--lutece-ds-sp-lg);
 	text-align: start;
 }
 
 /* Previous Steps  									*/
 .step-done {
 	padding-bottom: 2rem;
-	border-top: .1rem solid var(--lutece-ds-color-blue-300);
+	border-top: .1rem solid var(--lutece-ds-blue-300);
 }
 
 .step-done .step-title {
@@ -141,12 +141,12 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-done .step-title .title .step-number {
-	background: var(--lutece-ds-color-primary);
+	background: var(--lutece-ds-primary);
 	flex-shrink: 0;
 }
 
 .step-done .step-content {
-    padding: 0 0 0 calc( var(--lutece-ds-spacing-xl) + 1.75rem );
+    padding: 0 0 0 calc( var(--lutece-ds-sp-xl) + 1.75rem );
 }
 
 .step-done strong {
@@ -171,26 +171,26 @@ header+main .breadcrumb-nav+form .step,
 
 /** 		Current Step 								**/
 .step-current {
-	background-color: var(--lutece-ds-color-neutral-100);
+	background-color: var(--lutece-ds-neutral-100);
 }
 
 
 .step-current .step-title {
-	background-color: var(--lutece-ds-color-primary);
-	margin-block-end: var(--lutece-ds-spacing-md );
+	background-color: var(--lutece-ds-primary);
+	margin-block-end: var(--lutece-ds-sp-md );
 	position: relative;
 }
 
 .step-current .step-title .title{
-	color: var(--lutece-ds-color-white);
+	color: var(--lutece-ds-white);
 	position: relative;
 	margin-block: 0;
-	height: var(--lutece-ds-spacing-xl);
+	height: var(--lutece-ds-sp-xl);
 }
 
 .step-current .step-title .title .step-number {
-	color: var(--lutece-ds-color-white);
-	border-color: var(--lutece-ds-color-white);
+	color: var(--lutece-ds-white);
+	border-color: var(--lutece-ds-white);
 	flex-shrink: 0;
 }
 
@@ -208,27 +208,27 @@ header+main .breadcrumb-nav+form .step,
 	width: 0;
 	height: 0;
 	position: absolute;
-	border-top: 2.3rem solid var(--lutece-ds-color-primary);
+	border-top: 2.3rem solid var(--lutece-ds-primary);
 	border-bottom: 1.1rem solid transparent;
 	border-left: 5rem solid transparent;
 	border-right: 5rem solid transparent;
 	left: 50%;
-	bottom: calc( var(--lutece-ds-spacing-md) * -2.04 );
-	margin-inline-start: calc( var(--lutece-ds-spacing-md) * -2.5 );
+	bottom: calc( var(--lutece-ds-sp-md) * -2.04 );
+	margin-inline-start: calc( var(--lutece-ds-sp-md) * -2.5 );
 } */
 
 /* 	Current Step Group								*/
 .step-current .step-content .step-group {
-	background-color: var(--lutece-ds-color-white);
+	background-color: var(--lutece-ds-white);
 	border-radius: 0;
-	padding: var(--lutece-ds-spacing-xs) var(--lutece-ds-spacing-md);
+	padding: var(--lutece-ds-sp-xs) var(--lutece-ds-sp-md);
 }
 
 .step-current .step-content .form-row.step-group header[class*=col-]{
-	border-bottom: .6rem solid var(--lutece-ds-color-neutral-100);
+	border-bottom: .6rem solid var(--lutece-ds-neutral-100);
 	justify-content: space-between;
 	padding-inline: 0;
-	padding-block-end: var(--lutece-ds-spacing-md);
+	padding-block-end: var(--lutece-ds-sp-md);
 }
 
 .step-current .step-content .step-group .group-title {
@@ -243,11 +243,11 @@ header+main .breadcrumb-nav+form .step,
 }
 
 .step-current .step-content .mandatory-warning {
-	margin-block: var(--lutece-ds-spacing-lg );
+	margin-block: var(--lutece-ds-sp-lg );
 }
 
 .step-current .step-content .step-group.form-row>.col, .step-current .step-content .step-group.form-row>[class*=col-] {
-    padding-inline: 0 var(--lutece-ds-spacing-md-loose);
+    padding-inline: 0 var(--lutece-ds-sp-md-loose);
 }
 
 /* Ensure group iteration can be scrolled to the top of the screen */
@@ -307,7 +307,7 @@ a[name^="last_"]:before {
 	}
 
 	.step-current .step-content .mandatory-warning {
-		font-size: var( --lutece-ds-font-size-lg );
+		font-size: var( --lutece-ds-fs-lg );
 		font-weight: 300;
 	}
 
@@ -340,11 +340,11 @@ a[name^="last_"]:before {
 	
 	.step-done .step-content h2{
 		margin-block-start: 0;
-		margin-block-end: var(--lutece-ds-spacing-sm);
+		margin-block-end: var(--lutece-ds-sp-sm);
 	}
 
 	.step .step-content .step-group {
-		padding: var( --lutece-ds-spacing-xs );
+		padding: var( --lutece-ds-sp-xs );
 	}
 
 	.step-current .step-content .step-group.form-row >.col, 

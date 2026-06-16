@@ -2,8 +2,8 @@
 /*** 	Footer 								***/
 /*** 										***/
 footer {
-  background: var(--lutece-ds-color-blue-900);
-  color: var(--lutece-ds-color-white);
+  background: var(--lutece-ds-blue-900);
+  color: var(--lutece-ds-white);
   padding: 64px 0 32px;
 }
 
