@@ -30,6 +30,7 @@
 <script src="${commonsSiteJsPath}site.js?theme=${commonsGlobalThemeCode!}${commonsGlobalThemeVersion}"></script>
 </#macro>
 <#-- MAIN VARS MANAGEMENT               -->
+<#assign iconDefaultPrefixSelector>.ti</#assign>
 <#assign mainSite>Lutece</#assign>
 <#-- LINKS MANAGEMENT                   -->
 <#assign hasSiteMap><#if !dskey('portal.theme.site_property.menu.siteMapMenu.checkbox')?starts_with('DS') &&  dskey('portal.theme.site_property.menu.siteMapMenu.checkbox') =='1'>true<#else>false</#if></#assign>
