@@ -1,3 +1,7 @@
+<#-- escape a value for a JSON string (FreeMarker < 2.3.32 has no ?json_string) -->
+<#function jsonText value>
+<#return value?replace('\\', '\\\\')?replace('"', '\\"')?replace('\r', ' ')?replace('\n', ' ')?replace('\t', ' ')>
+</#function>
 <link rel="stylesheet" href="${commonsSiteThemePath}js/util/actb/css/atcb.min.css">	
 <#assign formTitle><#if form.displayTitleFo && form.title != '' >${form.title}<#else>#i18n{appointment.appointmentApp.defaultTitle}</#if></#assign>
 <@cContainer hasHeader=false class='pb-3 no-header'>
@@ -41,15 +45,18 @@
 				<@cIcon class='check' label='${formMessages.labelButtonRedirection}' /> 
 				<@cInline class='span-label'>${formMessages.labelButtonRedirection}</@cInline>
 			</@cLink>
-			<@cBlock id='atcb' class='atcb d-flex align-items-center' params='style="display: none;"'>
+			<#-- add-to-calendar-button placeholder: hidden until atcb.min.js turns it into a button
+			     (no d-flex here, its display:flex !important would show the raw JSON) -->
+			<div class="d-flex align-items-center">
+			<@cBlock id='atcb' class='atcb' params='style="display: none;"'>
 				{
-				  "name":"${formTitle}",
-				  "description":"${form.description}",
+				  "name":"${jsonText(formTitle!'')}",
+				  "description":"${jsonText(form.description!'')}",
 				  "startDate":"${dateAppointment?date?iso_utc}",
 				  "endDate":"${dateAppointment?date?iso_utc}",
 				  "startTime":"${startingTimeAppointment}",
 				  "endTime":"${endingTimeAppointment}",
-				  "location":"Somewhere over the rainbow",
+				  <#if (form.address!'') != ''>"location":"${jsonText(form.address)}",</#if>
 				  "label":"Ajouter au calendrier",
 				  "options":[
 					"Apple",
@@ -60,13 +67,14 @@
 					"Outlook.com",
 					"Yahoo"
 				  ],
-				  "timeZone":"Europe/Berlin",
+				  "timeZone":"Europe/Paris",
 				  "trigger":"click",
 				  "inline":true,
 				  "listStyle":"modal",
 				  "iCalFileName":"RDV-CiteLibre"
 				}
-			  </@cBlock>
+			</@cBlock>
+			</div>
 		</@cCol>
 	</@cRow>
 </@cStepCurrent>
